@@ -22,7 +22,7 @@ int start_var = 0;
 bool stringComplete = false; 
 int flow_meter_read = 0;
 
-//Variables fro receiving data from USB:
+//Variables for receiving data from USB:
 String inputString = ""; 
 String temp = "";
 String volumeString = "";
@@ -34,8 +34,8 @@ String alarmString = "";
 String temp_string = "";
 
 //Variables for setting outputs:
-int epr1_presssure = 0;
-int epr2_presssure = 0;
+int epr1_pressure = 0;
+int epr2_pressure = 0;
 
 //Misc Variables:
 int a = 0;
@@ -45,10 +45,10 @@ int peep = 5;
 int ratio = 1;
 int oxygen = 21;
 int alarm = 30;
-int lenght = 0;
+int length = 0;
 
 void setup() {
-  // Declare pins an OUTPUT:
+  // Declare pins on OUTPUT:
   pinMode(epr1, OUTPUT);
   pinMode(epr2, OUTPUT);
   pinMode(buzzer, OUTPUT);
@@ -57,7 +57,7 @@ void setup() {
 
   
 
-  // Declare pins an INPUT:
+  // Declare pins on INPUT:
   pinMode(power_reference, INPUT);//Power detection
   pinMode(sensor_a, INPUT);//Air pressure in Tank 
   pinMode(sensor_epr1, INPUT);//Air pressure
@@ -104,7 +104,7 @@ void loop() {
  if (stringComplete) {
     
     temp = inputString.charAt(0); 
-    lenght = inputString.length();
+    length = inputString.length();
     volumeString ="";
     breathString = "";
     peepString = "";
@@ -113,7 +113,7 @@ void loop() {
     alarmString = "";
     
     if (temp == "v") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         volumeString += temp_string;
       }
@@ -121,7 +121,7 @@ void loop() {
       Serial.println(volume);
     }
     else if (temp == "b") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         breathString += temp_string;
       }
@@ -129,7 +129,7 @@ void loop() {
       Serial.println(breath);
     }
     else if (temp == "p") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         peepString += temp_string;
       }
@@ -137,7 +137,7 @@ void loop() {
       Serial.println(peep);
     }
      else if (temp == "o") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         oxygenString += temp_string;
       }
@@ -145,7 +145,7 @@ void loop() {
       Serial.println(oxygen);
     }
     else if (temp == "r") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         ratioString += temp_string;
       }
@@ -153,7 +153,7 @@ void loop() {
       Serial.println(ratio);
     }
     else if (temp == "a") {
-      for (int i = 1; i <= lenght; i = i + 1){
+      for (int i = 1; i <= length; i = i + 1){
         temp_string = inputString.charAt(i);
         alarmString += temp_string;
       }

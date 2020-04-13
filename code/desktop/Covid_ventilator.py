@@ -212,7 +212,7 @@ class Application(tk.Tk):
         self.slider_ratio.set(1)
         self.slider_ratio.grid(row = 35, column = 7,)
 
-        self.slider_alarm = tk.Scale(self, from_=50, to=10,length=300, resolution =  1, troughcolor='blue', fg='red', label='Presure Alarm', width=35)
+        self.slider_alarm = tk.Scale(self, from_=50, to=10,length=300, resolution =  1, troughcolor='blue', fg='red', label='Pressure Alarm', width=35)
         self.slider_alarm.set(30)
         self.slider_alarm.grid(row = 35, column = 8,)     
 
@@ -299,7 +299,7 @@ class Application(tk.Tk):
                 self.led.to_red(on=True)
             elif int(dict_data['Power'])>800 :
                 bat_in = 0
-                self.led_data.insert('end', "Runing on AC Power")
+                self.led_data.insert('end', "Running on AC Power")
                 self.led.to_green(on=True)
 
             self.gauge_air.set_value(int(dict_data['ERP1']))
